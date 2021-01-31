@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Post} from '../post'
+import { PostService } from '../Post.service';
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostListComponent implements OnInit {
 
-  constructor() { }
+  posts:Post[] = []
 
+
+  constructor(public postSer:PostService) { }
   ngOnInit(): void {
+    this.posts =  this.postSer.readPost()
+  }
+
+
+  onDelete(id:string){
   }
 
 }
