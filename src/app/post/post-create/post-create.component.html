@@ -2,10 +2,10 @@
     <form (submit)="onSavePost(postForm)" #postForm="ngForm">
       <mat-form-field>
         <input
-          matInput
+        matInput
           type="text"
           name="title"
-          ngModel
+           ngModel
           required
           minlength="3"
           placeholder="Post Title"
@@ -21,6 +21,14 @@
         minlength="3"
         placeholder="Post Content"
         #content="ngModel">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>type</mat-label>
+        <mat-select name="type" required ngModel #type="ngModel">
+          <mat-option *ngFor="let type of types" [value]="type.value">
+            {{type.val}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
       <div>
         <button mat-raised-button color="accent" type="submit">Save Post</button>

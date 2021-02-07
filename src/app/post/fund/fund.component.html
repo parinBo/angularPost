@@ -1,0 +1,31 @@
+<h1>Username : </h1>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+    <ng-container matColumnDef="{{displayCol[0]}}">
+      <th mat-header-cell *matHeaderCellDef> deposit </th>
+      <td mat-cell *matCellDef="let element" > {{element.deposit}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="{{displayCol[1]}}">
+      <th mat-header-cell *matHeaderCellDef> capital </th>
+      <td mat-cell *matCellDef="let element"> {{element.deposit - (element.interest* element.balance)  }} </td>
+    </ng-container>
+   
+    <ng-container matColumnDef="{{displayCol[2]}}">
+      <th mat-header-cell *matHeaderCellDef> interest </th>
+      <td mat-cell *matCellDef="let element"> {{element.interest* element.balance}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="{{displayCol[3]}}">
+      <th mat-header-cell *matHeaderCellDef> balance </th>
+      <td mat-cell *matCellDef="let element"> {{element.balance}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayCol"></tr>
+    <tr mat-row *matRowDef="let r; columns: displayCol;"></tr>
+
+  </table>
+
+
+  
+  
